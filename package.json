@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engine":{
+    "node":"8.11.1"
+  },
   "scripts": {
     "dev": "nodemon --exec babel-node ./api/index.js",
     "clean": "rm -rf build && mkdir build",
@@ -38,8 +41,5 @@
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.17.2"
-  },
-  "engine":{
-    "node":"8.11.1"
   }
 }
