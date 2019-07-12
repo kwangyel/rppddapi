@@ -322,7 +322,7 @@ function () {
                 _context7.prev = 0;
                 _context7.next = 3;
                 return _models["default"].pests.findAll({
-                  attributes: ['id', 'name', 'scientificname', 'casualorganism', 'host']
+                  attributes: ['id', 'name', 'scientificname', 'casualorganism', 'host', 'category', 'status_bhutan']
                 });
 
               case 3:
@@ -346,6 +346,47 @@ function () {
       }
 
       return pestGist;
+    }()
+  }, {
+    key: "category",
+    value: function () {
+      var _category = (0, _asyncToGenerator2["default"])(
+      /*#__PURE__*/
+      _regenerator["default"].mark(function _callee8(cat) {
+        return _regenerator["default"].wrap(function _callee8$(_context8) {
+          while (1) {
+            switch (_context8.prev = _context8.next) {
+              case 0:
+                _context8.prev = 0;
+                _context8.next = 3;
+                return _models["default"].pests.findAll({
+                  where: {
+                    category: cat
+                  },
+                  attributes: ['id', 'name', 'status_bhutan']
+                });
+
+              case 3:
+                return _context8.abrupt("return", _context8.sent);
+
+              case 6:
+                _context8.prev = 6;
+                _context8.t0 = _context8["catch"](0);
+                throw _context8.t0;
+
+              case 9:
+              case "end":
+                return _context8.stop();
+            }
+          }
+        }, _callee8, null, [[0, 6]]);
+      }));
+
+      function category(_x8) {
+        return _category.apply(this, arguments);
+      }
+
+      return category;
     }()
   }]);
   return pestService;

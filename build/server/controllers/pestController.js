@@ -310,23 +310,22 @@ function () {
           while (1) {
             switch (_context6.prev = _context6.next) {
               case 0:
-                searchname = req.body.searchname;
-                console.log("this is the search query ".concat(searchname));
+                searchname = req.body.searchname; // console.log(`this is the search query ${searchname}`);
 
                 if (!(searchname === "")) {
-                  _context6.next = 5;
+                  _context6.next = 4;
                   break;
                 }
 
                 util.setError(404, 'Please input valid name of scientificName');
                 return _context6.abrupt("return", util.send(res));
 
-              case 5:
-                _context6.prev = 5;
-                _context6.next = 8;
+              case 4:
+                _context6.prev = 4;
+                _context6.next = 7;
                 return _pestService["default"].searchPest(searchname);
 
-              case 8:
+              case 7:
                 thePest = _context6.sent;
 
                 if (!thePest) {
@@ -337,18 +336,18 @@ function () {
 
                 return _context6.abrupt("return", util.send(res));
 
-              case 13:
-                _context6.prev = 13;
-                _context6.t0 = _context6["catch"](5);
+              case 12:
+                _context6.prev = 12;
+                _context6.t0 = _context6["catch"](4);
                 util.setError(404, _context6.t0);
                 return _context6.abrupt("return", util.send(res));
 
-              case 17:
+              case 16:
               case "end":
                 return _context6.stop();
             }
           }
-        }, _callee6, null, [[5, 13]]);
+        }, _callee6, null, [[4, 12]]);
       }));
 
       function searchPest(_x11, _x12) {
@@ -362,7 +361,7 @@ function () {
     value: function () {
       var _pestGist = (0, _asyncToGenerator2["default"])(
       /*#__PURE__*/
-      _regenerator["default"].mark(function _callee7(req, res, next) {
+      _regenerator["default"].mark(function _callee7(req, res) {
         var pestgist;
         return _regenerator["default"].wrap(function _callee7$(_context7) {
           while (1) {
@@ -382,30 +381,85 @@ function () {
                   util.setSuccess(200, 'No pests found');
                 }
 
-                util.send(res);
-                next();
-                _context7.next = 13;
-                break;
+                return _context7.abrupt("return", util.send(res));
 
-              case 9:
-                _context7.prev = 9;
+              case 8:
+                _context7.prev = 8;
                 _context7.t0 = _context7["catch"](0);
                 util.setError(400, _context7.t0);
                 return _context7.abrupt("return", util.send(res));
 
-              case 13:
+              case 12:
               case "end":
                 return _context7.stop();
             }
           }
-        }, _callee7, null, [[0, 9]]);
+        }, _callee7, null, [[0, 8]]);
       }));
 
-      function pestGist(_x13, _x14, _x15) {
+      function pestGist(_x13, _x14) {
         return _pestGist.apply(this, arguments);
       }
 
       return pestGist;
+    }()
+  }, {
+    key: "category",
+    value: function () {
+      var _category = (0, _asyncToGenerator2["default"])(
+      /*#__PURE__*/
+      _regenerator["default"].mark(function _callee8(req, res) {
+        var cat, pestlist;
+        return _regenerator["default"].wrap(function _callee8$(_context8) {
+          while (1) {
+            switch (_context8.prev = _context8.next) {
+              case 0:
+                // const category=req.body.category;
+                cat = req.params.cat; // console.log(`this is the search query ${searchname}`);
+
+                if (!(cat === "")) {
+                  _context8.next = 4;
+                  break;
+                }
+
+                util.setError(404, 'Please input valid category');
+                return _context8.abrupt("return", util.send(res));
+
+              case 4:
+                _context8.prev = 4;
+                _context8.next = 7;
+                return _pestService["default"].category(cat);
+
+              case 7:
+                pestlist = _context8.sent;
+
+                if (pestlist.length > 0) {
+                  util.setSuccess(200, 'Pests Retrieved', pestlist);
+                } else {
+                  util.setSuccess(200, 'No pests found');
+                }
+
+                return _context8.abrupt("return", util.send(res));
+
+              case 12:
+                _context8.prev = 12;
+                _context8.t0 = _context8["catch"](4);
+                util.setError(404, _context8.t0);
+                return _context8.abrupt("return", util.send(res));
+
+              case 16:
+              case "end":
+                return _context8.stop();
+            }
+          }
+        }, _callee8, null, [[4, 12]]);
+      }));
+
+      function category(_x15, _x16) {
+        return _category.apply(this, arguments);
+      }
+
+      return category;
     }()
   }]);
   return pestController;

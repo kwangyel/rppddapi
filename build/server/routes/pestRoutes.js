@@ -18,6 +18,7 @@ router.post('/', _pestController["default"].addPest); // router.get('/pestGist',
 
 router.get('/pestGist', _pestController["default"].pestGist);
 router.get('/search', _pestController["default"].searchPest);
+router.get('/category/:cat', _pestController["default"].category);
 router.get('/:id', _pestController["default"].getAPest);
 router.put('/:id', _pestController["default"].updatePest);
 router["delete"]('/:id', _pestController["default"].deteledPest);

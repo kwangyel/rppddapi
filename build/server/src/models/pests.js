@@ -11,7 +11,9 @@ module.exports = function (sequelize, DataTypes) {
     distribution: DataTypes.STRING,
     spreadmeans: DataTypes.TEXT,
     phytosanitaryrisk: DataTypes.TEXT,
-    phytosanitarymeasures: DataTypes.TEXT
+    phytosanitarymeasures: DataTypes.TEXT,
+    category: DataTypes.STRING,
+    status_bhutan: DataTypes.STRING
   }, {});
 
   pests.associate = function (models) {// associations can be defined here
