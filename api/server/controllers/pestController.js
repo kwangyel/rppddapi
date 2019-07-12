@@ -108,7 +108,7 @@ class pestController{
 
 	static async searchPest(req,res){
 		const searchname=req.body.searchname;
-		console.log(`this is the search query ${searchname}`);
+		// console.log(`this is the search query ${searchname}`);
 		
 		if(searchname===""){
 			util.setError(404,'Please input valid name of scientificName');
@@ -130,7 +130,7 @@ class pestController{
 		}
 	}
 
-	static async pestGist(req,res,next){
+	static async pestGist(req,res){
 
 		try{
 			const pestgist=await pestService.pestGist();
@@ -140,13 +140,36 @@ class pestController{
 			}else{
 				util.setSuccess(200,'No pests found');
 			}
-			util.send(res);
-			next();
+			return util.send(res);
+			
 		}catch(error){
 			util.setError(400,error);
 			return util.send(res);
 		}
 
+	}
+
+	static async category(req,res){
+		// const category=req.body.category;
+		const {cat}=req.params;
+		// console.log(`this is the search query ${searchname}`);
+		if(cat===""){
+			util.setError(404,'Please input valid category');
+			return util.send(res);
+		}
+		try{
+			const pestlist=await pestService.category(cat);
+			
+			if(pestlist.length > 0){
+				util.setSuccess(200,'Pests Retrieved',pestlist);
+			}else{
+				util.setSuccess(200,'No pests found');
+			}
+			return util.send(res);
+		}catch(error){
+			util.setError(404,error);
+			return util.send(res);
+		}
 	}
 }
 

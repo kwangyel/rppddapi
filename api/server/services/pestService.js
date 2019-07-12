@@ -74,7 +74,18 @@ class pestService{
 	static async pestGist(){
 		try{
 			return await database.pests.findAll({
-				attributes: ['id','name','scientificname','casualorganism','host']
+				attributes: ['id','name','scientificname','casualorganism','host','category','status_bhutan']
+			});
+		}catch(error){
+			throw error;
+		}
+	}
+
+	static async category(cat){
+		try{
+			return await database.pests.findAll({
+				where:{category:cat},
+				attributes: ['id','name','status_bhutan']
 			});
 		}catch(error){
 			throw error;

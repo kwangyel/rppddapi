@@ -9,6 +9,7 @@ router.post('/',pestController.addPest);
 // router.get('/pestGist',cache.checkResponseCache,pestController.pestGist,cache.addResponseToCache);
 router.get('/pestGist',pestController.pestGist);
 router.get('/search',pestController.searchPest);
+router.get('/category/:cat',pestController.category);
 router.get('/:id',pestController.getAPest);
 router.put('/:id',pestController.updatePest);
 router.delete('/:id',pestController.deteledPest);
