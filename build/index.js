@@ -31,7 +31,7 @@ app.use(_bodyParser["default"].json());
 app.use(_bodyParser["default"].urlencoded({
   extended: false
 }));
-var port = process.env.PORT || 8000;
+var port = process.env.PORT || 80;
 app.use('/api/v1/pests', _pestRoutes["default"]);
 app.use('/api/v1/comments', _commentRoute["default"]);
 app.use('/api/v1/img', _pictureRoute["default"]);

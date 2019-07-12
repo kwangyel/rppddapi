@@ -16,7 +16,7 @@ app.use(cors());
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:false}));
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 80;
 
 app.use('/api/v1/pests',pestRoutes);
 app.use('/api/v1/comments',commentsroute);
