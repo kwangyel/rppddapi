@@ -7,6 +7,7 @@ import config from 'dotenv';
 import pestRoutes from './server/routes/pestRoutes';
 import commentsroute from './server/routes/commentRoute';
 import pictureRoute from './server/routes/pictureRoute';
+import referenceRoute from './server/routes/referenceRoute';
 import cors from 'cors';
 config.config();
 
@@ -21,6 +22,7 @@ const port = process.env.PORT || 80;
 app.use('/api/v1/pests',pestRoutes);
 app.use('/api/v1/comments',commentsroute);
 app.use('/api/v1/img',pictureRoute);
+app.use('/api/v1/pests/reference',referenceRoute);
 
 app.get('*',(req,res)=>{
 	res.status(200).send({
