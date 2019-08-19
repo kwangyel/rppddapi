@@ -27,12 +27,13 @@ class pestController{
 		}
 
 		const newPest=req.body;
+		console.log(newPest);
 		try{
 			const createdPest=await pestService.addPest(newPest);
 			util.setSuccess(201,'Pest Added',createdPest);
 			return util.send(res);
 		}catch(error){
-			util.setError(400,error.message);
+			util.setError(400,error);
 			return util.send(res);
 		}
 	}

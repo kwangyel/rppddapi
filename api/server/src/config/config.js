@@ -7,7 +7,8 @@ module.exports={
 	    "password": "323395kt",
 	    "database": "RPPD",
 	    "host": "127.0.0.1",
-	    "dialect": "postgres"
+	    "dialect": "postgres",
+	    "secret":process.env.SECRET,
 	  },
 	  "test": {
 	    "username": "postgres",
@@ -22,7 +23,8 @@ module.exports={
 	    "password": process.env.DB_PASS,
 	    "database": process.env.DB_NAME,
 	    "host": process.env.DB_HOST,
-	    "dialect": "postgres"
+	    "dialect": "postgres",
+	    "secret":process.env.SECRET,
 	  }
 
 };

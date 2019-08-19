@@ -11,6 +11,7 @@ class pestService{
 
 	static async addPest(newPest){
 		try{
+			console.log(newPest)
 			return await database.pests.create(newPest);
 		}catch(error){
 			throw error;
@@ -51,7 +52,7 @@ class pestService{
 				const deteledPest= await database.pests.destroy({
 					where: {id: Number(id)}
 				});
-				return deletePest;
+				return deteledPest;
 			}
 			return null;
 		}catch(error){
