@@ -14,6 +14,7 @@ router.use((req,res,next)=>{
 		jwt.verify(token,config.secret,(err,decoded)=>{
 			if(err){
 				return res.json({message:'invalid token'});
+				console.log('invaldi token');
 			}else{
 				req.decoded=decoded;
 				next();
@@ -23,6 +24,7 @@ router.use((req,res,next)=>{
 		res.send({
 			message:'No token provided'
 		});
+		console.log('No token provided');
 	}
 });
 

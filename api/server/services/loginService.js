@@ -13,7 +13,7 @@ class loginService{
 					console.log('user not found');
 					return;
 				}else if(bcrypt.compareSync(password,user.password)){
-					token=jwt.sign({id:user.id},config.secret,{expiresIn:5});
+					token=jwt.sign({id:user.id},config.secret,{expiresIn:60*60});
 					return token;
 				}else{
 					console.log('password not found');
