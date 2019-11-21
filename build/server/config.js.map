@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../api/server/config.js"],"names":["module","exports","secret"],"mappings":";;AAAAA,MAAM,CAACC,OAAP,GAAiB;AAEbC,EAAAA,MAAM,EAAG;AAFI,CAAjB","sourcesContent":["module.exports = {\r\n\r\n    secret : \"heymynameismohamedaymen\"\r\n}"],"file":"config.js"}
