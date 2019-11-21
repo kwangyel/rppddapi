@@ -11,10 +11,16 @@ import pictureRoute from './server/routes/pictureRoute';
 import referenceRoute from './server/routes/referenceRoute';
 import protectedRoutes from './server/routes/protectedRoutes';
 import cors from 'cors';
+import http from 'http';
 
 config.config();
 
 const app=express();
+
+var httpServer = http.createServer(app);
+//module.exports=app;
+console.log("Server listening on port 80");
+httpServer.listen(80);
 
 app.use(cors());
 app.use('/api/v1/img',pictureRoute);
@@ -35,10 +41,9 @@ app.get('*',(req,res)=>{
 	})
 });
 
-app.listen(port,()=>{
-	console.log(`server listening on port ${port}`)
-});
+// app.listen(port,()=>{
+// 	console.log(`server listening on port ${port}`)
+// });
 
-//module.exports=app;
 
-export default app;
+// export default app;
