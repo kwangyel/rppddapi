@@ -1,5 +1,6 @@
 import picservice from '../services/picservice';
 import Util from '../utils/Utils';
+import multer from 'multer';
 
 const util=new Util();
 
@@ -28,9 +29,12 @@ class piccontroller{
 		}
 	}
 
-	
+	static async uploadPic(req,res){
+		const path=process.env.STATIC;
+		const upload=multer({dest:path});
 
-	
+		upload.single('')
+	}
 }
 
 export default piccontroller;

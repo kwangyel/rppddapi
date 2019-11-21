@@ -17,6 +17,7 @@ config.config();
 const app=express();
 
 app.use(cors());
+app.use('/api/v1/img',pictureRoute);
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:false}));
 
@@ -26,7 +27,6 @@ app.use('/api/v1/protected',protectedRoutes)
 app.use('/api/v1/admin',adminRoutes);
 app.use('/api/v1/pests',pestRoutes);
 app.use('/api/v1/comments',commentsroute);
-app.use('/api/v1/img',pictureRoute);
 app.use('/api/v1/pests/reference',referenceRoute);
 
 app.get('*',(req,res)=>{
